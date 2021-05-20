@@ -59,7 +59,7 @@ for i in range(len(json_string)):
     if data_resp['country'] == 'UA':
       response1 = requests.post('http://93.115.21.119/api/case', json={"title": "test","description": "test"}, headers={'Authorization': 'Bearer ' + auth_token})
       res=response1.json()
-      response2 = requests.post(f'http://93.115.21.119/api/case/{res["id"]}/ioc',json={"type":"IP","value":f"{json_string[i]['iocs']['ip']}"},headers=hed)
+      response2 = requests.post(f'http://93.115.21.119/api/case/{res["id"]}/ioc',json={"type":"IP","value":f"{json_string[i]['iocs']['ip']}"},headers={'Authorization': 'Bearer ' + auth_token})
       print(response2.json())
 
 
